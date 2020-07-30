@@ -1,0 +1,5 @@
+1) composer install the latest package, make sure the current lara version is compatible. otherwise specify plugin/dependencies on composer.json
+2) what is the use case of ->with in relationship mapping
+3) return of (bool) $product
+4) "This will route every web request to a single entry point, which will be the entry for your Vue application." am i suppose to put something on web route?
+5) how does custom event on router-view work? answer: if its not built-in event, its an $emit
