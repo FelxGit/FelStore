@@ -1,5 +1,15 @@
+About
+Fel Store is a one product checkout app
+
+Laravel
 1) composer install the latest package, make sure the current lara version is compatible. otherwise specify plugin/dependencies on composer.json
-2) what is the use case of ->with in relationship mapping
-3) return of (bool) $product
-4) "This will route every web request to a single entry point, which will be the entry for your Vue application." am i suppose to put something on web route?
-5) how does custom event on router-view work? answer: if its not built-in event, its an $emit
+2) laravel ::create(), does one row at a time. but ::insert() could do more 
+
+MongoDb
+1) it seem laravel-mongo isnt stable yet( ex problem with eloquent query)
+2) >with returns data with its nested relation to other model
+3)
+
+Vue
+1) how does custom event on router-view work? answer: if its not built-in event, its an $emit
+2) header token authorization one time per route?

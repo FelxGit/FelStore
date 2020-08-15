@@ -21,9 +21,10 @@
                 </tbody>
             </table>
             <modal @close="endEditing" :product="editingItem" v-show="editingItem != null"></modal>
-            <modal @close="addProduct"  :product="addingProduct" v-show="addingProduct != null"></modal>
+            <modal @close="addProduct" :product="addingProduct" v-show="addingProduct != null"></modal>
             <br>
-            <button class="btn btn-primary" @click="newProduct">Add New Product</button>
+            <!-- to close modal add -->
+            <button class="btn btn-primary" @click="newProduct">Add New Product</button> 
         </div>
     </template>
       <script>
@@ -39,6 +40,10 @@
         },
         components: {Modal},
         beforeMount() {
+            
+            axios.defaults.headers.common['Content-Type'] = 'application/json'
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
+            
             axios.get('/api/products/').then(response => this.products = response.data)
         },
         methods: {

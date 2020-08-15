@@ -35,6 +35,9 @@
             }
         },
         beforeMount(){
+            axios.defaults.headers.common['Content-Type'] = 'application/json'
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
+            
             axios.get('/api/orders/').then(response => this.orders = response.data)
         },
         methods: {

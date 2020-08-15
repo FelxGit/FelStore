@@ -12,11 +12,22 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User;
-        $user->name = "Admin";
-        $user->email = "admin@devtest.com";
-        $user->password = bcrypt('secret');
-        $user->is_admin = true;
-        $user->save();
+        $users = [
+            [
+                'name' => 'User',
+                'email' => 'user@devtest.com',
+                'password' => bcrypt('secret'),
+                'is_admin' => false
+            ],
+            [
+                'name' => 'Admin',
+                'email' => 'admin@devtest.com',
+                'password' => bcrypt('secret'),
+                'is_admin' => true
+            ]
+
+        ];
+
+        User::insert($users);
     }
 }

@@ -52,17 +52,17 @@ export default {
             product : []
         }
     },
-    mounted() {
-        this.isLoggedIn = localStorage.getItem('felStore.jwt') != null
-    },
     beforeMount() {
-        axios.get(`/api/products/${this.pid}`).then(response => this.product = response.data)
-
         if (localStorage.getItem('felStore.jwt') != null) {
-            this.user = JSON.parse(localStorage.getItem('felStore.user'))
+            
             axios.defaults.headers.common['Content-Type'] = 'application/json'
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
+  
+            axios.get(`/api/products/${this.pid}`).then(response => this.product = response.data)
         }
+    },
+    mounted() {
+        this.isLoggedIn = localStorage.getItem('felStore.jwt') != null
     },
     methods : {
         login() {

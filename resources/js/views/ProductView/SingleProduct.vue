@@ -25,7 +25,11 @@
             }
         },
         beforeMount(){
-            let url = `/api/products/${this.$route.params.id}`
+
+            axios.defaults.headers.common['Content-Type'] = 'application/json'
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
+
+            let url = `/api/products/${this.$route.params.id}`            
             axios.get(url).then(response => this.product = response.data)      
         }
     }

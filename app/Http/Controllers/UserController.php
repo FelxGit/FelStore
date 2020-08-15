@@ -61,8 +61,8 @@ class UserController extends Controller
     }
 
     public function showOrders(User $user)
-    {
-        return response()->json($user->orders()->with(['product'])->get());
+    {   
+        return response()->json($user->orders()->with(['products'])->get(),200);
     }
 
 }

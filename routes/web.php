@@ -15,3 +15,8 @@
 Route::get('/{any}', function(){
     return view('landing');
 })->where('any', '.*');
+
+Route::get('/sample', function(){
+    return config('database.default');
+});
+

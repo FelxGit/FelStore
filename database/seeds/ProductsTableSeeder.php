@@ -55,7 +55,6 @@ class ProductsTableSeeder extends Seeder
             ]
         ];
 
-        //note DB::table isnt part of jensengers eloquent model, use collection
-        DB::collection('products')->insert($products);
+        Product::insert($products);
     }
 }

@@ -31,9 +31,12 @@
                         products : []
                     }
                 },
-                mounted(){
-                    axios.get("api/products/").then(response => this.products = response.data)      
-                }
+                beforeMount() {
+                    axios.defaults.headers.common['Content-Type'] = 'application/json'
+                    axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
+                   
+                    axios.get("api/products").then(response => this.products = response.data)  
+                },
             }
         </script>
         <style scoped>

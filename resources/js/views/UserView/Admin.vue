@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <ul style="list-style-type:none">
-                            <li class="active"><button class="btn" @click="setComponent('main')">Dashboard</button></li>
+                            <li class="active"><button class="btn" @click="setComponent('maindashboard')">Dashboard</button></li>
                             <li><button class="btn" @click="setComponent('orders')">Orders</button></li>
                             <li><button class="btn" @click="setComponent('products')">Products</button></li>
                             <li><button class="btn" @click="setComponent('users')">Users</button></li>
@@ -22,10 +22,10 @@
     </template>
 
     <script>
-    import Main from '../../components/admin/Main'
-    import Users from '../../components/admin/Users'
-    import Products from '../../components/admin/Products'
-    import Orders from '../../components/admin/Orders'
+    import MainDashboard from '../../components/AdminComponent/MainDashboard.vue'
+    import Users from '../../components/AdminComponent/Users.vue'
+    import Products from '../../components/AdminComponent/Products.vue'
+    import Orders from '../../components/AdminComponent/Orders.vue'
 
     export default {
         data() {
@@ -35,13 +35,9 @@
             }
         },
         components: {
-            Main, Users, Products, Orders
+            MainDashboard, Users, Products, Orders
         },
         beforeMount() {
-            this.setComponent(this.$route.params.page)
-            this.user = JSON.parse(localStorage.getItem('bigStore.  d fuser'))
-            axios.defaults.headers.common['Content-Type'] = 'application/json'
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('bigStore.jwt')
         },
         methods: {
             setComponent(value) {
@@ -59,7 +55,7 @@
                         this.$router.push({name: 'admin-pages', params: {page: 'products'}})
                         break;
                     default:
-                        this.activeComponent = Main
+                        this.activeComponent = MainDashboard
                         this.$router.push({name: 'admin'})
                         break;
                 }
