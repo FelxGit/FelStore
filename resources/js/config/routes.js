@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+Vue.use(Router);
 
-import { appRoutes as app } from './views/ProductView';
-import { authRoutes as auth } from './views/AuthView'
-import { pageCodesRoutes as pageCodes } from './views/PageCodesView'
-import { userRoutes as user } from './views/UserView'
+import { appRoutes as app } from '../views/ProductView';
+import { authRoutes as auth } from '../views/AuthView'
+import { pageCodesRoutes as pageCodes } from '../views/PageCodesView'
+import { userRoutes as user } from '../views/UserView'
 // import { noteRoutes as note} from './views/notes'
 
-Vue.use(Router);
 const routes = [...app, ...auth, ...pageCodes, ...user ]; // spread operator(...) - spread properties from object to multiple arguments
 
 const router = new Router({
@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) { //to a route that requires authentication
         if (localStorage.getItem('felStore.jwt') == null) {
             next({
-                path: '/login',
+                path: '/login', 
                 params: { nextUrl: to.fullPath }
             })
         } else {
@@ -46,6 +46,18 @@ router.beforeEach((to, from, next) => {
     } else {
         next()
     }
+  })
+
+  router.beforeResolve((to, from, next) => {
+    // If this isn't an initial page load.
+    // NProgress.start()
+
+    next()
+  })
+  
+  router.afterEach((to, from) => {
+    // Complete the animation of the route progress bar.
+    // NProgress.done()
   })
   
 export default router

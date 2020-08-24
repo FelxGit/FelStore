@@ -8,8 +8,13 @@ Laravel
 MongoDb
 1) it seem laravel-mongo isnt stable yet( ex problem with eloquent query)
 2) >with returns data with its nested relation to other model
-3)
 
 Vue
 1) how does custom event on router-view work? answer: if its not built-in event, its an $emit
-2) header token authorization one time per route?
+2) sometimes, npm installs are not stable. had to put cdn script under index.html for it to work
+3) Vue.component(comp,require) to require and use globaly
+4) Vue.use() is must for vue-router only?
+4) dont confuse import with php 'use', import is also similar to require(), but 
+5) on reactive data() update, refrain from using []indexes. and for existing object, use this.$set/Vue.set(). Even tho Vue 3.0 eliminate this.  
+6) Vue 3 will bring state management along with its release. thus to have global-reactive data with vuex is probably not needed. 
+7) vuex ..map() provide reactivty than direct access

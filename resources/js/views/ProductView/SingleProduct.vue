@@ -1,6 +1,7 @@
  <template>
         <div class="container">
             <div class="row">
+                <content-spinner v-show="loading"></content-spinner>
                 <div class="col-md-8 offset-md-2">
                     <img :src="product.image" :alt="product.name">
                     <h3 class="title" v-html="product.name"></h3>
@@ -11,13 +12,16 @@
                     </h4>
                     <br>
                     <hr>
-                    <router-link :to="{ path: '/checkout?pid='+product.id }" class="col-md-4 btn btn-sm btn-primary float-right">Buy Now</router-link>
+                    <router-link :to="'/checkout?pid='+product.id" class="col-md-4 btn btn-md btn-success float-right">
+                        Buy Now
+                    </router-link>
                 </div>
             </div>
         </div>
     </template>
 
     <script>
+    import { mapState } from 'vuex'
     export default {
         data(){
             return {
@@ -25,12 +29,11 @@
             }
         },
         beforeMount(){
-
-            axios.defaults.headers.common['Content-Type'] = 'application/json'
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
-
             let url = `/api/products/${this.$route.params.id}`            
-            axios.get(url).then(response => this.product = response.data)      
+            this.$http.get(url).then(response => this.product = response.data)      
+        },
+        computed: {
+            ...mapState(['loading'])
         }
     }
     </script>

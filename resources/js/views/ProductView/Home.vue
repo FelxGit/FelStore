@@ -1,13 +1,11 @@
     <template>
             <div>
-                <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
-                    <h2 class="title">Welcome to the FelStore</h2>
-                    <router-link :to="{ name: 'not-found' }">Not found</router-link>
-                </div>
+                <header-title title="Welcome to my STORE"></header-title>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
+                                <ContentSpinner v-show="loading"></ContentSpinner>
                                 <div class="col-md-4 product-box" v-for="(product,index) in products" :key="index">
                                     <router-link :to="{ path: '/products/'+product.id}">
                                         <img :src="product.image" :alt="product.name">
@@ -23,19 +21,20 @@
                 </div>
             </div>
         </template>
-
         <script>
+            import { mapState } from 'vuex'
+
             export default {
                 data(){
                     return {
                         products : []
                     }
                 },
+                computed: {
+                    ...mapState(['loading'])  // is reactive
+                },
                 beforeMount() {
-                    axios.defaults.headers.common['Content-Type'] = 'application/json'
-                    axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
-                   
-                    axios.get("api/products").then(response => this.products = response.data)  
+                    this.$http.get("api/products").then(response => this.products = response.data)
                 },
             }
         </script>
@@ -46,16 +45,5 @@
         .product-box {
             border: 1px solid #cccccc;
             padding: 10px 15px;
-        }
-        .hero-section {
-            height: 30vh;
-            background: #ababab;
-            align-items: center;
-            margin-bottom: 20px;
-            margin-top: -20px;
-        }
-        .title {
-            font-size: 60px;
-            color: #ffffff;
         }
         </style>

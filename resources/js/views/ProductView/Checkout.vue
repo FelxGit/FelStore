@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
+            <ContentSpinner v-show="loading"></ContentSpinner>
             <div class="col-md-8 offset-md-2">
                 <div class="order-box">
                     <img :src="product.image" :alt="product.name">
@@ -27,7 +28,10 @@
                             </div>
                         </div>
                         <br>
-                        <button class="col-md-4 btn btn-sm btn-success float-right" v-if="isLoggedIn" @click="placeOrder">Continue</button>
+                        <button @click="placeOrder" class="col-md-4 btn btn-md btn-success float-right">
+                            <i v-if="loading" class="fa fa-loading" aria-hidden="true"></i>
+                            <span v-else>Continue</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -42,6 +46,8 @@
 </style>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     props : ['pid'],
     data(){
@@ -52,13 +58,12 @@ export default {
             product : []
         }
     },
+    computed: {
+        ...mapState(['loading'])
+    },
     beforeMount() {
         if (localStorage.getItem('felStore.jwt') != null) {
-            
-            axios.defaults.headers.common['Content-Type'] = 'application/json'
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
-  
-            axios.get(`/api/products/${this.pid}`).then(response => this.product = response.data)
+            this.$http.get(`/api/products/${this.pid}`).then(response => this.product = response.data)
         }
     },
     mounted() {
@@ -78,7 +83,7 @@ export default {
             let product_id = this.product.id
             let quantity = this.quantity
     
-            axios.post('api/orders/', {address, quantity, product_id})
+            this.$http.post('api/orders/', {address, quantity, product_id})
                     .then(response => this.$router.push('/confirmation'))
         },
         checkUnits(e){

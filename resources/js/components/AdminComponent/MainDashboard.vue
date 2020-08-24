@@ -24,13 +24,9 @@
             }
         },
         beforeMount() {
-            axios.defaults.headers.common['Content-Type'] = 'application/json'
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
-        },
-        mounted() {
-            axios.get('/api/users/').then(response => this.users = response.data)
-            axios.get('/api/products/').then(response => this.products = response.data)
-            axios.get('/api/orders/').then(response => this.orders = response.data)
+            this.$http.get('/api/users/').then(response => this.users = response.data)
+            this.$http.get('/api/products/').then(response => this.products = response.data)
+            this.$http.get('/api/orders/').then(response => this.orders = response.data)
         }
     }
     </script>

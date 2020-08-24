@@ -1,8 +1,6 @@
 <template>
         <div>
-            <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
-                <h2 class="title">Admin Dashboard</h2>
-            </div>
+            <header-title title="Admin Dashboard"></header-title>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
@@ -65,6 +63,4 @@
     </script>
 
     <style scoped>
-    .hero-section { height: 20vh; background: #ababab; align-items: center; margin-bottom: 20px; margin-top: -20px; }
-    .title { font-size: 60px; color: #ffffff; }
     </style>

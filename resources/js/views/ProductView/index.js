@@ -23,7 +23,7 @@ const appRoutes = [
         path: '/checkout',
         name: 'checkout',
         component: Checkout,
-        props: (route) => ({ pid: route.query.pid })
+        props: (route) => ({ pid: route.query.pid }) //hmm
     },
 ];
 

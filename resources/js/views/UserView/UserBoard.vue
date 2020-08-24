@@ -1,10 +1,9 @@
     <template>
         <div>
-            <div class="container-fluid hero-section d-flex align-content-center justify-content-center flex-wrap ml-auto">
-                <h2 class="title">All your orders</h2>
-            </div>
+            <header-title title="Your Orders"></header-title>
             <div class="container">
                 <div class="row">
+                    <content-spinner v-show="loading"></content-spinner>
                     <div class="col-md-12">
                         <br>
                         <div class="row">
@@ -28,7 +27,7 @@
     </template>
 
     <script>
-    import Vue from 'vue'
+    import { mapState } from 'vuex'
     export default {
         data() {
             return {
@@ -36,15 +35,14 @@
                 orders : []
             }
         },
+        computed: {
+            ...mapState(['loading'])
+        },
         beforeMount() {
             this.user = JSON.parse(localStorage.getItem('felStore.user'))
 
-            axios.defaults.headers.common['Content-Type'] = 'application/json'
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
-            
-            axios.get(`api/users/${this.user.id}/orders`)
-                 .then(response => this.orders = response.data)
-                 
+            this.$http.get(`api/users/${this.user.id}/orders`)
+                 .then(response => this.orders = response.data)         
         }
     }
     </script>
@@ -52,6 +50,4 @@
     <style scoped>
         .small-text { font-size: 14px; }
         .product-box { border: 1px solid #cccccc; padding: 10px 15px; }
-        .hero-section { background: #ababab; height: 20vh; align-items: center; margin-bottom: 20px; margin-top: -20px; }
-        .title { font-size: 60px; color: #ffffff; }
     </style>

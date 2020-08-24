@@ -5,7 +5,7 @@
                     <span class="title"><strong>Thank You!</strong></span><br>
                     <span class="medium-text">Your order has been placed.</span><br>
                     <router-link :to="{name: 'userboard'}" class="small-link">
-                        See your orders
+                        See your orders <i class="fa fa-heart ml-3" aria-hidden="true"></i>
                     </router-link>
                 </h2>
             </div>
@@ -17,9 +17,8 @@
     </script>
 
     <style scoped>
-    .medium-text { font-size: 36px; }
-    .small-link { font-size: 24px; text-decoration: underline; color: #777; }
+    .medium-text { font-size: 36px; color: white }
+    .small-link { font-size: 24px; text-decoration: underline; color: white; }
     .product-box { border: 1px solid #cccccc; padding: 10px 15px; }
-    .hero-section { height: 80vh; align-items: center; margin-top: -20px; margin-bottom: 20px; }
-    .title { font-size: 60px; }
+    .hero-section { height: 80vh }
     </style>

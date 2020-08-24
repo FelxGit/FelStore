@@ -30,6 +30,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
+Vue.component('HeaderTitle', require('../components/TemplateParts/HeaderTitle.vue').default)
+Vue.component('ContentSpinner', require('../components/LoadingAnimation/ContentSpinner.vue').default)
+
 export default {
     data() {
         return {

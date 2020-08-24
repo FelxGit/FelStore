@@ -40,10 +40,6 @@
         },
         components: {Modal},
         beforeMount() {
-            
-            axios.defaults.headers.common['Content-Type'] = 'application/json'
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt')
-            
             axios.get('/api/products/').then(response => this.products = response.data)
         },
         methods: {
@@ -65,7 +61,7 @@
                 let price = product.price
                 let description = product.description
 
-                axios.put(`/api/products/${product.id}`, {name, units, price, description})
+                this.$http.put(`/api/products/${product.id}`, {name, units, price, description})
                      .then(response => this.products[index] = product)
             },
             addProduct(product) {
@@ -77,7 +73,7 @@
                 let description = product.description
                 let image = product.image 
 
-                axios.post("/api/products/", {name, units, price, description, image})
+                this.$http.post("/api/products/", {name, units, price, description, image})
                      .then(response => this.products.push(product))
             }
         }
