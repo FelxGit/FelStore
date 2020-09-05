@@ -2,12 +2,18 @@ import Home from './Home.vue'
 import SingleProduct from './SingleProduct.vue'
 import Checkout from './Checkout.vue'
 import Confirmation from './Confirmation.vue'
+import Cart from './Cart.vue'
 
 const appRoutes = [
     {
         path: '/',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/cart',
+        name: 'cart',
+        component: Cart
     },
     {
         path: '/products/:id',
@@ -27,7 +33,7 @@ const appRoutes = [
     },
 ];
 
-export { appRoutes }; // only bec none default export can be renamed
+export { appRoutes }; 
 
 // export default {
 //     path: '/product',

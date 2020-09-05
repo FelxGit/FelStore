@@ -82,11 +82,11 @@ return [
             'prefix_indexes' => true,
         ],
 
-        // 'mongodb' => [
-        //     'driver' => 'mongodb',
-        //     'dsn' => env('DB_DSN'),
-        //     'database' => env('DB_DATABASE', 'homestead'),
-        // ],
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'dsn' => env('DB_DSN'),
+            'database' => env('DB_DATABASE', 'homestead'),
+        ],
 
     ],
 
@@ -116,18 +116,18 @@ return [
 
     'redis' => [
 
-        'client' => 'predis',
+        'client' => env('REDIS_CLIENT','predis'),
 
         'default' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
+            'password' => env('REDIS_PASSWORD', null),  //or login string can used in here
             'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_DB', 0),
         ],
 
         'cache' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
+            'password' => env('REDIS_PASSWORD', null),  //as well as here
             'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_CACHE_DB', 1),
         ],

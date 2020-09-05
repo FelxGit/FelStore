@@ -15,12 +15,17 @@ use Illuminate\Http\Request;
  
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
-Route::get('products', 'ProductController@index');
+Route::get('products', 'ProductController@index');              
 Route::get('products/{product}', 'ProductController@show');
 Route::post('upload-file', 'ProductController@uploadFile');
+Route::get('cart-local','CartController@localIndex');
+Route::get('cart-local/{product_id}/{quantity}', 'CartController@localStore');
+Route::put('cart-local/{cart_id}', 'CartController@localUpdate');
+Route::get('cart-local/{cart_id}', 'CartController@localDestroy');
 
 Route::group(['middleware' => 'auth:api'], function(){
-    
+
+    Route::apiResource('cart','CartController')->except(['show']);
     Route::get('users','UserController@index');
     Route::get('users/{user}','UserController@show');
     Route::patch('users/{user}','UserController@update');

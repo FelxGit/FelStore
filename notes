@@ -4,7 +4,8 @@ Fel Store is a one product checkout app
 Laravel
 1) composer install the latest package, make sure the current lara version is compatible. otherwise specify plugin/dependencies on composer.json
 2) laravel ::create(), does one row at a time. but ::insert() could do more 
-
+3) http request with laravel can not hold object array on controller param, only single value /sample/{value}
+4) its always good to seprate authenticated(route that use auth()) and non-authenticated(route that dont use auth())
 MongoDb
 1) it seem laravel-mongo isnt stable yet( ex problem with eloquent query)
 2) >with returns data with its nested relation to other model
@@ -13,8 +14,26 @@ Vue
 1) how does custom event on router-view work? answer: if its not built-in event, its an $emit
 2) sometimes, npm installs are not stable. had to put cdn script under index.html for it to work
 3) Vue.component(comp,require) to require and use globaly
-4) Vue.use() is must for vue-router only?
+4) Vue.use() is to use plugin globally, Vue.component() is to use component globally
 4) dont confuse import with php 'use', import is also similar to require(), but 
 5) on reactive data() update, refrain from using []indexes. and for existing object, use this.$set/Vue.set(). Even tho Vue 3.0 eliminate this.  
 6) Vue 3 will bring state management along with its release. thus to have global-reactive data with vuex is probably not needed. 
 7) vuex ..map() provide reactivty than direct access
+
+Cloning
+1) composer install
+2) npm install
+3) php artisan passport:install(every after migrate)
+
+Validation
+1) always validate the backend, front-end validations can be disabled and is merely used for server to avoid recieve unaccepted values, and for faster process.
+2) to prefer plugin/js validation vs HTML/js, ull have to use js anyway for customization 
+
+Extension vs REMOTE server
+1) download ext for localhost(mysql_dll,mongo_dll,redis_dll)
+
+Redis
+1) redis understand only its won language, so serialize/json_encode if you want to pass array from  server
+
+CSS
+1) default grid column/row size will depend on its toppest

@@ -6,6 +6,8 @@ use Auth;
 use App\User;
 use Validator;
 use Illuminate\Http\Request;
+use App\Cart;
+use Illuminate\Support\Facades\Cache;
 
 class UserController extends Controller
 {
@@ -20,6 +22,8 @@ class UserController extends Controller
         $response = ['error' => 'Unauthorised'];
 
         if (Auth::attempt($request->only(['email', 'password']))) {
+            $this->pullLocalCart();
+
             $status = 200;
             $response = [
                 'user' => Auth::user(),
@@ -28,6 +32,19 @@ class UserController extends Controller
         }
 
         return response()->json($response, $status);
+    }
+    private function pullLocalCart(){
+        $local_cart = Cache::has('cart')? json_decode(Cache::get('cart')) : []; 
+
+        $data = [];
+        foreach($local_cart as $cart){
+            $array = (array) $cart; //{ } is typecasted converted to associative array
+            $array['user_id'] = Auth::user()->id;
+            array_push($data, $array);
+        }
+        
+        Cart::insert($data);
+        Cache::forget('cart');
     }
 
     public function register(Request $request)

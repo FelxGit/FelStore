@@ -3,7 +3,7 @@ import axios from 'axios'
 import { store } from '../store/'
 
 const instance = axios.create({
-  // baseURL: '/api'
+    baseURL: 'http://127.0.0.1:3232' // put base or your app might concatenate the url
   })
 
 // before a request is made
