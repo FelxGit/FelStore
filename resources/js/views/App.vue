@@ -14,6 +14,7 @@
                         <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
                         <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
                         <router-link :to="{ name: 'cart' }" class="nav-link">Cart</router-link>
+                        <router-link :to="{ name: 'checkout' }" class="nav-link">Checkout</router-link>
                         <span v-if="isLoggedIn">
                             <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hi, {{name}}</router-link>
                             <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hi, {{name}}</router-link>

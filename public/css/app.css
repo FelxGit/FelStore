@@ -10910,7 +10910,7 @@ a.text-dark:focus {
 }
 
 .title {
-  font-size: 60px;
+  font-size: calc(12px + 2vw) !important;
   color: #FFFFE0;
   text-shadow: 3px 5px 0px #707070;
 }

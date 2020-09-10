@@ -1,6 +1,9 @@
 About
 Fel Store is a one product checkout app
 
+Controller Rule
+1) while altering a controller, focus only on the present, and how it affect the past. You must not think about the future, for the future will do the same. lol(you cant predict the future, what are you jesus?)
+
 Laravel
 1) composer install the latest package, make sure the current lara version is compatible. otherwise specify plugin/dependencies on composer.json
 2) laravel ::create(), does one row at a time. but ::insert() could do more 
@@ -23,7 +26,7 @@ Vue
 Cloning
 1) composer install
 2) npm install
-3) php artisan passport:install(every after migrate)
+3) php artisan passport:install(every after fresh migrate)
 
 Validation
 1) always validate the backend, front-end validations can be disabled and is merely used for server to avoid recieve unaccepted values, and for faster process.

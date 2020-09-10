@@ -12,17 +12,17 @@ class Order extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'product_id', 'user_id', 'quantity', 'address' 
+        'user_id', 'shipping_fee', 'cart_total', 'address' 
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-
-    public function products()
+    
+    public function carts()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->hasMany(Cart::class);
     }
 
 }

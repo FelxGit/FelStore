@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\product;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,27 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return response()->json(Order::with('products')->get(),200);
+        $orders = Auth::user()->orders()->with('carts')->get();
+        $data = [];
+        foreach($orders as $index => $order) {
+            
+            $order_only = [
+                'user_id' => $order->user_id,
+                'shipping_fee' => $order->shipping_fee,
+                'cart_total' => $order->cart_total,
+                'status' => $order->status,
+                'is_delivered' => $order->is_delivered
+            ];
+
+            $data[$index] = $order_only;
+            $data[$index]['carts'] = $order->carts;
+
+            foreach($data[$index]['carts'] as $i => $cart) {
+                $product = Product::find($cart->product_id);
+                $data[$index]['carts'][$i]['product'] = $product;
+            }
+        }
+        return response()->json($data,200);
     }
 
     public function deliverOrder(Order $order)
@@ -28,12 +49,18 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = Order::create([
-            'product_id' => $request->product_id,
             'user_id' => Auth::id(),
-            'quantity' => $request->quantity,
+            'shipping_fee' => $request->shipping_fee,
+            'cart_total' => $request->cart_total,
             'address' => $request->address
         ]);
 
+        $cart = Auth::user()->carts()->where('status','cart')
+        ->update([
+            'order_id' => $order->id,
+            'status' => 'PENDING'
+        ]);
+        
         return response()->json([
             'status' => (bool) $order,
             'data'   => $order,
