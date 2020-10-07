@@ -42,19 +42,15 @@
                 switch(value) {
                     case "users":
                         this.activeComponent = Users
-                        this.$router.push({name: 'admin-pages', params: {page: 'users'}})
                         break;
                     case "orders":
                         this.activeComponent = Orders
-                        this.$router.push({name: 'admin-pages', params: {page: 'orders'}})
                         break;
                     case "products":
                         this.activeComponent = Products
-                        this.$router.push({name: 'admin-pages', params: {page: 'products'}})
                         break;
                     default:
                         this.activeComponent = MainDashboard
-                        this.$router.push({name: 'admin'})
                         break;
                 }
             }

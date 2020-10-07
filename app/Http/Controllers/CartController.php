@@ -18,7 +18,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return response()->json(Auth::user()->carts()->where('status','cart')->with('product')->get());
+        return response()->json(Auth::user()->cart()->where('status','cart')->with('product')->get());
     }
     
     public function localIndex()

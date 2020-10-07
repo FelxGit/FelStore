@@ -40,9 +40,8 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
-        'api' => [
-            'driver' => 'passport',
+        'api' => [                   //you can use to check if the user has a token(normally via middleware aitj)
+            'driver' => 'passport',  //a unique token will be available once the $user->createdToken() initiated
             'provider' => 'users',
         ],
     ],

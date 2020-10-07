@@ -9,6 +9,8 @@ Laravel
 2) laravel ::create(), does one row at a time. but ::insert() could do more 
 3) http request with laravel can not hold object array on controller param, only single value /sample/{value}
 4) its always good to seprate authenticated(route that use auth()) and non-authenticated(route that dont use auth())
+5) how to make api.php that use middle 'web' remove the '/api' on url?
+
 MongoDb
 1) it seem laravel-mongo isnt stable yet( ex problem with eloquent query)
 2) >with returns data with its nested relation to other model

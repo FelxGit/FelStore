@@ -11221,6 +11221,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   methods: {
     login: function login() {
+      // after login, redirect back
       this.$router.push({
         name: 'login',
         params: {
@@ -11522,39 +11523,18 @@ __webpack_require__.r(__webpack_exports__);
       switch (value) {
         case "users":
           this.activeComponent = _components_AdminComponent_Users_vue__WEBPACK_IMPORTED_MODULE_1__["default"];
-          this.$router.push({
-            name: 'admin-pages',
-            params: {
-              page: 'users'
-            }
-          });
           break;
 
         case "orders":
           this.activeComponent = _components_AdminComponent_Orders_vue__WEBPACK_IMPORTED_MODULE_3__["default"];
-          this.$router.push({
-            name: 'admin-pages',
-            params: {
-              page: 'orders'
-            }
-          });
           break;
 
         case "products":
           this.activeComponent = _components_AdminComponent_Products_vue__WEBPACK_IMPORTED_MODULE_2__["default"];
-          this.$router.push({
-            name: 'admin-pages',
-            params: {
-              page: 'products'
-            }
-          });
           break;
 
         default:
           this.activeComponent = _components_AdminComponent_MainDashboard_vue__WEBPACK_IMPORTED_MODULE_0__["default"];
-          this.$router.push({
-            name: 'admin'
-          });
           break;
       }
     }
@@ -34721,50 +34701,38 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: routes
 }); // this is like one time middleware for every route
+// router.beforeEach((to, from, next) => {
+//     if (to.matched.some(record => record.meta.requiresAuth)) { //to a route that requires authentication
+//         if (localStorage.getItem('felStore.jwt') == null) {
+//             next({
+//                 path: '/login', 
+//                 params: { nextUrl: to.fullPath }
+//             })
+//         } else {
+//             let user = JSON.parse(localStorage.getItem('felStore.user'))
+//             if (to.matched.some(record => record.meta.is_admin)) {
+//                 if (user.is_admin == 1) {
+//                     next()
+//                 }
+//                 else {
+//                     next({ name: 'userboard' })
+//                 }
+//             }
+//             else if (to.matched.some(record => record.meta.is_user)) {
+//                 if (user.is_admin == 0) {
+//                     next()
+//                 }
+//                 else {
+//                     next({ name: 'admin' })
+//                 }
+//             }
+//             next()
+//         }
+//     } else {
+//         next()
+//     }
+//   })
 
-router.beforeEach(function (to, from, next) {
-  if (to.matched.some(function (record) {
-    return record.meta.requiresAuth;
-  })) {
-    //to a route that requires authentication
-    if (localStorage.getItem('felStore.jwt') == null) {
-      next({
-        path: '/login',
-        params: {
-          nextUrl: to.fullPath
-        }
-      });
-    } else {
-      var _user = JSON.parse(localStorage.getItem('felStore.user'));
-
-      if (to.matched.some(function (record) {
-        return record.meta.is_admin;
-      })) {
-        if (_user.is_admin == 1) {
-          next();
-        } else {
-          next({
-            name: 'userboard'
-          });
-        }
-      } else if (to.matched.some(function (record) {
-        return record.meta.is_user;
-      })) {
-        if (_user.is_admin == 0) {
-          next();
-        } else {
-          next({
-            name: 'admin'
-          });
-        }
-      }
-
-      next();
-    }
-  } else {
-    next();
-  }
-});
 router.beforeResolve(function (to, from, next) {
   // If this isn't an initial page load.
   // NProgress.start()
@@ -35160,7 +35128,7 @@ var pageCodesRoutes = [{
         will match everything
   path: '*'
   */
-  path: '*',
+  path: 'sample123',
   name: 'not-found',
   component: _404_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
 }];
@@ -35844,23 +35812,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Admin_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Admin.vue */ "./resources/js/views/UserView/Admin.vue");
 
 
-var userRoutes = [{
-  path: '/admin/:page',
-  name: 'admin-pages',
-  component: _Admin_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-  meta: {
-    requiresAuth: true,
-    is_admin: true
-  }
-}, {
-  path: '/admin',
-  name: 'admin',
-  component: _Admin_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-  meta: {
-    requiresAuth: true,
-    is_admin: true
-  }
-}, {
+var userRoutes = [// {
+//     path: '/admin',
+//     name: 'admin',
+//     component: Admin,
+//     meta: {
+//         requiresAuth: true,
+//         is_admin: true
+//     }
+// },
+{
   path: '/dashboard',
   name: 'userboard',
   component: _Userboard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],

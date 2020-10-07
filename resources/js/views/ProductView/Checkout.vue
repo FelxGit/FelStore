@@ -101,7 +101,7 @@ export default {
         }
     },
     methods : {
-        login() {
+        login() { // after login, redirect back
             this.$router.push({name: 'login', params: {nextUrl: this.$route.fullPath}})
         },
         register() {

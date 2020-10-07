@@ -8,7 +8,7 @@ Vue.use(Vuelidate)
 import App from './views/App'
 
 Vue.prototype.$http = axios
-
+console.log('am i being called')
 const app = new Vue({
     el: '#app',
     components: { App },

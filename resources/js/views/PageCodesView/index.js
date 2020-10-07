@@ -9,7 +9,7 @@ const pageCodesRoutes = [
         will match everything
         path: '*'
         */ 
-        path: '*',
+        path: 'sample123',
         name: 'not-found',
         component: NotFound,
     },

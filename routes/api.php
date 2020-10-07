@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
- 
+
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::get('products', 'ProductController@index');              
@@ -23,7 +23,7 @@ Route::get('cart-local/{product_id}/{quantity}', 'CartController@localStore');
 Route::put('cart-local/{cart_id}', 'CartController@localUpdate');
 Route::get('cart-local/{cart_id}', 'CartController@localDestroy');
 
-Route::group(['middleware' => 'auth:api'], function(){
+Route::group(['middleware' => 'auth:api'], function(){  // or if user has token
 
     Route::apiResource('cart','CartController')->except(['show']);
     Route::get('users','UserController@index');
@@ -36,3 +36,6 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::resource('orders', 'OrderController');
     Route::patch('orders/{order}/deliver','OrderController@deliverOrder');
 });
+
+
+
