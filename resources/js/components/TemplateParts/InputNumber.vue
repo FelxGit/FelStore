@@ -12,7 +12,7 @@ export default {
         data: {
         // prop can only be initialize by the data() once, in some case, you may use computed property as replacement of data()
             type: Object,
-            default: {}
+            default:() => {}
         },
     },
     data() {

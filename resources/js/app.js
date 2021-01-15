@@ -10,7 +10,7 @@ import App from './views/App'
 Vue.prototype.$http = axios
 const app = new Vue({
     el: '#app',
-    components: { App },
+    components: { 'app': App },
     router,
     store
 })

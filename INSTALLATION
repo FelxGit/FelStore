@@ -1,0 +1,15 @@
+Cloning
+1) composer install
+2) npm install
+3) artisan migrate && db:seed
+
+/*every after fresh migrate*/
+4) php artisan passport:install(to be able to generate access token)
+5) artisan voyager:install(migrate and seeds to voyager generated/or to existing appended schema ex. user)
+
+Validation
+1) always validate the backend, front-end validations can be disabled and is merely used for server to avoid/recieve unaccepted values, and for faster process.
+2) plugin/custom js validation vs embedded, either way they're javascript and might as well prefer plugin/custom js for flexibility
+
+Extension for local
+1) download ext for localhost(mysql_dll,mongo_dll,redis_dll)

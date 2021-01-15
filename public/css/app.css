@@ -11,7 +11,7 @@
   --blue: #3490dc;
   --indigo: #6574cd;
   --purple: #9561e2;
-  --pink: #f66D9b;
+  --pink: #f66d9b;
   --red: #e3342f;
   --orange: #f6993f;
   --yellow: #ffed4a;
@@ -533,7 +533,7 @@ mark,
 
 code {
   font-size: 87.5%;
-  color: #f66D9b;
+  color: #f66d9b;
   word-wrap: break-word;
 }
 
@@ -10902,24 +10902,5 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
-}
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-.title {
-  font-size: calc(12px + 2vw) !important;
-  color: #FFFFE0;
-  text-shadow: 3px 5px 0px #707070;
-}
-
-.hero-section {
-  height: 30vh;
-  background: linear-gradient(110deg, transparent 20%, brown 20%), url(/images/header-title.jpg?5f12e2b2a69766d61d6f1023fc14167d);
-  align-items: center;
-  margin-bottom: 20px;
-  margin-top: -20px;
 }
 
