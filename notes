@@ -17,7 +17,7 @@ MongoDb
 2) >with returns nested relation data to other model
 
 Vue
-1) how does custom event on router-view work? if its not built-in event, its an $emit
+1) 
 2) sometimes, npm installs are not stable. had to put cdn script under index.html for it to work
 3) Vue.component(comp,require) to require and use globaly
 4) Vue.use() is to use plugin globally, Vue.component() is to use component globally

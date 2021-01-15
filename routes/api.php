@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('login', 'UserController@login');
-Route::post('register', 'UserController@register');
 Route::get('products', 'ProductController@index');              
 Route::get('products/{product}', 'ProductController@show');
 Route::post('upload-file', 'ProductController@uploadFile');

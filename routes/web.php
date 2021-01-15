@@ -15,10 +15,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('sample', function() {
-    return view('sample');
-});
+Auth::routes(['verify' => true]);
 
-Route::get('/{any}', function(){
-    return view('landing');
-})->where('any', '.*');
+Route::view('/', 'landing')->middleware('verified');
