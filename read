@@ -1,0 +1,10 @@
+Requirements:
+1)php_redis.dll(local)
+2)redis server
+3)database setup
+
+1)composer install
+2)npm install
+3)php artisan migrate
+4)php artisan voyager:install
+5)php artisan passport:install(to generate access tokens)
