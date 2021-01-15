@@ -11,9 +11,6 @@
 |
 */
 
-
-//URL shortener for your api
-//make sure put this BELOW ur web routes
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

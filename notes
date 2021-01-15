@@ -1,22 +1,23 @@
 About
-Fel Store is a one product checkout app
-
-Controller Rule
-1) while altering a controller, focus only on the present, and how it affect the past. You must not think about the future, for the future will do the same. lol(you cant predict the future, what are you jesus?)
+Fels Hive is a plant.
 
 Laravel
 1) composer install the latest package, make sure the current lara version is compatible. otherwise specify plugin/dependencies on composer.json
 2) laravel ::create(), does one row at a time. but ::insert() could do more 
 3) http request with laravel can not hold object array on controller param, only single value /sample/{value}
-4) its always good to seprate authenticated(route that use auth()) and non-authenticated(route that dont use auth())
-5) how to make api.php that use middle 'web' remove the '/api' on url?
+4) separate the admin from user
+5) how to make api.php that use middle 'web' remove the '/api' on url? - ohhhhhh ok
+6) 302 is a response redirect behaviour of laravel
+
+Laravel Fun Facts:
+1)
 
 MongoDb
 1) it seem laravel-mongo isnt stable yet( ex problem with eloquent query)
-2) >with returns data with its nested relation to other model
+2) >with returns nested relation data to other model
 
 Vue
-1) how does custom event on router-view work? answer: if its not built-in event, its an $emit
+1) how does custom event on router-view work? if its not built-in event, its an $emit
 2) sometimes, npm installs are not stable. had to put cdn script under index.html for it to work
 3) Vue.component(comp,require) to require and use globaly
 4) Vue.use() is to use plugin globally, Vue.component() is to use component globally
@@ -25,20 +26,11 @@ Vue
 6) Vue 3 will bring state management along with its release. thus to have global-reactive data with vuex is probably not needed. 
 7) vuex ..map() provide reactivty than direct access
 
-Cloning
-1) composer install
-2) npm install
-3) php artisan passport:install(every after fresh migrate)
-
-Validation
-1) always validate the backend, front-end validations can be disabled and is merely used for server to avoid recieve unaccepted values, and for faster process.
-2) to prefer plugin/js validation vs HTML/js, ull have to use js anyway for customization 
-
-Extension vs REMOTE server
-1) download ext for localhost(mysql_dll,mongo_dll,redis_dll)
+Vue Fun Facts:
+1) <router-view> is a component, you may $emit data from it <router-view @loggedIn="change">  
 
 Redis
-1) redis understand only its won language, so serialize/json_encode if you want to pass array from  server
+1) redis understand only its won language, so serialize/json_encode if you want to pass array
 
 CSS
-1) default grid column/row size will depend on its toppest
+1) default grid columns/rows size will depend on its starting point
