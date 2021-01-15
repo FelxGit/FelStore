@@ -1,5 +1,5 @@
 About
-Fels Hive is a plant
+Fels Hive is a plant.
 
 Laravel
 1) composer install the latest package, make sure the current lara version is compatible. otherwise specify plugin/dependencies on composer.json
