@@ -1,0 +1,25 @@
+1)docker is a containeralization tool
+2)docker separates web services in a container(including dependencies)
+3)docker is lightweight, parallel containers that barely take system resources
+4)Compose is a tool for defining and running multi-container Docker applications. 
+
+#docker setup
+download docker for windows
+wsl install 
+https://docs.microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package
+you may skip step 6(this case)
+
+#commands
+docker-compose config - here the container connections
+docker-compose up -d
+docker-ps - list of running containers
+
+#artisan commands
+docker-compose run artisan migrate
+docker-compose run artisan db:seed
+
+#composer commands
+docker-compose run composer dump-autoload
+
+#npm commands
+docker-compose run npm install
