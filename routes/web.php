@@ -10,16 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-//URL shortener for your api
-//make sure put this BELOW ur web routes
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
-});
-
-Route::get('sample', function() {
-    return view('sample');
 });
 
 Route::get('/{any}', function(){
