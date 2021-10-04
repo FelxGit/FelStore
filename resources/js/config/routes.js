@@ -49,9 +49,7 @@ const router = new Router({
 //   })
 
   router.beforeResolve((to, from, next) => {
-    // If this isn't an initial page load.
     // NProgress.start()
-
     next()
   })
   
