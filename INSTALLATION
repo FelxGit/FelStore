@@ -13,5 +13,5 @@ Requirements for local dev:
 Composer, Node.js
 
 Ran with: xampp
-1) download ext for localhost(mysql_dll,mongo_dll,redis_dll)
+1) may download extensions on local dev (php_redis.dll) <- not needed now since predis is used
 2) windows redis server
