@@ -18,7 +18,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return response()->json(Auth::user()->cart()->where('status','cart')->with('product')->get());
+        return response()->json(Auth::user()->carts()->where('status','cart')->with('product')->get());
     }
     
     public function localIndex()
@@ -89,7 +89,7 @@ class CartController extends Controller
         $cart->quantity = $request->quantity;
         $cart->save();
 
-        return response()->json(Auth::user()->cart()->with('product')->get());
+        return response()->json(Auth::user()->carts()->with('product')->get());
     }
 
     public function localUpdate(Request $request, $index)
@@ -125,7 +125,7 @@ class CartController extends Controller
     public function destroy(Cart $cart)
     {
         $cart->delete();
-        return response()->json(Auth::user()->cart()->with('product')->get());
+        return response()->json(Auth::user()->carts()->with('product')->get());
     }
 
     public function localDestroy($index)

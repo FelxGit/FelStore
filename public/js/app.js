@@ -34623,6 +34623,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/config/app.env.js":
+/*!****************************************!*\
+  !*** ./resources/js/config/app.env.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// var environment = 'felstore';
+// var storage =  'https://storage.felstore.com/'+environment+'/';
+var appConfig = {
+  development_mode: true
+  /* urls (servers, domain and site) */
+  // SERVER_URL: 'https://api-dev.' + environment + '.com',
+  // SITE_URL: 'https://dev.' + environment + '.com',
+  // SERVER_NAKED_DOMAIN: 'api-dev.' + environment + '.com',
+  // SITE_NAKED_DOMAIN: 'dev.' + environment + '.com',
+
+  /* files of storage */
+  // logo: { url: storage + 'logo-top.png',    width: 156  },
+
+};
+
+if (appConfig.development_mode) {
+  appConfig.SERVER_URL = 'http://127.0.0.1:3232', appConfig.SERVER_NAKED_DOMAIN = '127.0.0.1';
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (appConfig);
+
+/***/ }),
+
 /***/ "./resources/js/config/axios.js":
 /*!**************************************!*\
   !*** ./resources/js/config/axios.js ***!
@@ -34633,26 +34665,28 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Vue */ "./node_modules/Vue/dist/vue.runtime.esm.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _store___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/ */ "./resources/js/store/index.js");
+/* harmony import */ var _app_env__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.env */ "./resources/js/config/app.env.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _store___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/ */ "./resources/js/store/index.js");
 
 
 
-var instance = axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
-  baseURL: 'http://127.0.0.1:3232' // put base or your app might concatenate the url
+
+var instance = axios__WEBPACK_IMPORTED_MODULE_2___default.a.create({
+  baseURL: _app_env__WEBPACK_IMPORTED_MODULE_1__["default"].SERVER_URL // put base or your app may result to concatenate
 
 }); // before a request is made
 
 instance.interceptors.request.use(function (config) {
   config.headers['Content-Type'] = 'application/json';
   config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('felStore.jwt');
-  _store___WEBPACK_IMPORTED_MODULE_2__["store"].dispatch('loading_update', true);
+  _store___WEBPACK_IMPORTED_MODULE_3__["store"].dispatch('loading_update', true);
   return config;
 }); // before a response is returned
 
 instance.interceptors.response.use(function (response) {
-  _store___WEBPACK_IMPORTED_MODULE_2__["store"].dispatch('loading_update', false);
+  _store___WEBPACK_IMPORTED_MODULE_3__["store"].dispatch('loading_update', false);
   return response;
 });
 /* harmony default export */ __webpack_exports__["default"] = (instance);
@@ -34734,7 +34768,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 //   })
 
 router.beforeResolve(function (to, from, next) {
-  // If this isn't an initial page load.
   // NProgress.start()
   next();
 });
@@ -35852,8 +35885,8 @@ var userRoutes = [// {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\tuts\spa-rest\FelStore\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\tuts\spa-rest\FelStore\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\FelStore\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\FelStore\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
