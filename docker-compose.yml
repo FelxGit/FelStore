@@ -60,13 +60,12 @@ services:
   php:
     build:
       context: .
-      #add the php and extensions to this docker file
+      #this dockerfile has the php image with its extensions
       dockerfile: ./docker/php/php.dockerfile
     container_name: felstore_php
     volumes: 
       - .:/var/www/html
     ports: 
-      #note: this is present in the webserver default.conf
       - "9000:9000"
     networks:
       - felstore
@@ -91,6 +90,7 @@ services:
     networks:
       - felstore    
 
+  #setup npm with node
   npm:
     image: node:14.9
     container_name: felstore_npm
@@ -99,10 +99,10 @@ services:
     working_dir: /var/www/html
     entrypoint: ['npm']
 
+  #setup artisan with php
   artisan:
     build: 
       context: .
-      #artisan is necessary to have php
       dockerfile: ./docker/php/php.dockerfile
     container_name: felstore_artisan
     volumes: 
