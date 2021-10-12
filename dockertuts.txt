@@ -1,5 +1,5 @@
 1)docker is a containeralization tool
-2)docker separates web services in a container(including dependencies)
+2)docker separates web services in a container
 3)docker is lightweight, parallel containers that barely take system resources
 4)Compose is a tool for defining and running multi-container Docker applications. 
 
@@ -12,7 +12,7 @@ you may skip step 6(this case)
 #commands
 docker-compose config - here the container connections
 docker-compose up -d
-docker-ps - list of running containers
+docker ps -a  - list of running containers
 
 #artisan commands
 docker-compose run artisan migrate
