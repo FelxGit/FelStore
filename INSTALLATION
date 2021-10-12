@@ -2,11 +2,17 @@ This is the installation guide
 
 1) composer install
 2) npm install
-3) artisan migrate && db:seed
+3) artisan migrate
 
 /*every after fresh migrate*/
 4) php artisan passport:install(to generate access token)
-5) artisan voyager:install(migrate and seeds from voyager database folder/or append parameter to existing database schema ex. user)
+
+5) artisan voyager:install(
+    Copies Directory [\vendor\tcg\voyager\publishable\database\seeds] To [\database\seeds]..
+    migrates && seeds voyager tables..
+    for more info, see ran log..)
+
+6) artisan db:seed
 6) http://127.0.0.1 & serve on port :3232
 
 Requirements for local dev:

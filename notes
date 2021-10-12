@@ -14,3 +14,7 @@ vuex
 Validation
 1) always validate the backend, front-end validations can be disabled and is merely used for server to avoid/recieve unaccepted values, and for faster process.
 2) plugin/custom validation vs embedded, either way they're javascript and might as well prefer plugin/custom validation for flexibility
+
+Voyager
+1) voyager:install will create a symlink in order to store avatar on storage/app
+1) set the APP_URL to show admin avatar
