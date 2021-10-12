@@ -4,13 +4,12 @@ Laravel
 2) laravel ::create(), does one row at a time. while ::insert() could do more
 3) 302 is a response redirect of laravel
 
-Vue
-1) how does custom event on router-view work? if its not built-in event, its an $emit
-2) some plugins installed via package manager like npm, may not as stable. You may try cdn.
-3) Vue.component(comp,require) to require and use globaly
-4) Vue.use() is to use plugin globally, Vue.component() is to use component globally
-5) on reactive data() update, refrain from using []indexes. For existing object, use this.$set/Vue.set().
-6) Vue 3 will bring state management along with its release. thus to have global-reactive data with vuex is probably not needed
+vuex
+1) some plugins installed via package manager like npm, may not as stable. You may try cdn.
+2) Vue.component(comp,require) to require and use globaly
+3) Vue.use() is to use plugin globally, Vue.component() is to use component globally
+4) on reactive data() update, refrain from using []indexes. For existing object, use this.$set/Vue.set().
+5) Vue 3 will bring state management along with its release, thus to have global-reactive data with vuex is probably not needed
 
 Validation
 1) always validate the backend, front-end validations can be disabled and is merely used for server to avoid/recieve unaccepted values, and for faster process.

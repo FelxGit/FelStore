@@ -1,0 +1,185 @@
+[2021-10-05 00:02:07] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:02:16] local.ERROR: Connection refused [tcp://127.0.0.1:6379] {"exception":"[object] (Predis\\Connection\\ConnectionException(code: 111): Connection refused [tcp://127.0.0.1:6379] at /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php:155)
+[stacktrace]
+#0 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\\Connection\\AbstractConnection->onConnectionError('Connection refu...', 111)
+#1 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\\Connection\\StreamConnection->createStreamSocket(Object(Predis\\Connection\\Parameters), 'tcp://127.0.0.1...', 4)
+#2 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\\Connection\\StreamConnection->tcpStreamInitializer(Object(Predis\\Connection\\Parameters))
+#3 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\\Connection\\StreamConnection->createResource()
+#4 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\\Connection\\AbstractConnection->connect()
+#5 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\\Connection\\StreamConnection->connect()
+#6 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\\Connection\\AbstractConnection->getResource()
+#7 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\\Connection\\StreamConnection->write('*1\\
+$7\\
+FLUSHDB...')
+#8 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\\Connection\\StreamConnection->writeRequest(Object(Predis\\Command\\ServerFlushDatabase))
+#9 /var/www/html/vendor/predis/predis/src/Client.php(331): Predis\\Connection\\AbstractConnection->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#10 /var/www/html/vendor/predis/predis/src/Client.php(314): Predis\\Client->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#11 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/Connection.php(116): Predis\\Client->__call('flushdb', Array)
+#12 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/PredisConnection.php(65): Illuminate\\Redis\\Connections\\Connection->command('flushdb')
+#13 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php(217): Illuminate\\Redis\\Connections\\PredisConnection->flushdb()
+#14 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(646): Illuminate\\Cache\\RedisStore->flush()
+#15 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(67): Illuminate\\Cache\\Repository->__call('flush', Array)
+#16 [internal function]: Illuminate\\Cache\\Console\\ClearCommand->handle()
+#17 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#18 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Util.php(37): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(134): Illuminate\\Container\\Container->call(Array)
+#23 /var/www/html/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 /var/www/html/vendor/symfony/console/Application.php(1000): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 /var/www/html/vendor/symfony/console/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 /var/www/html/vendor/symfony/console/Application.php(147): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 /var/www/html/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 
+[2021-10-05 00:06:45] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:10:30] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:10:33] local.ERROR: Command "cache:ckear" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table
+    config:clear
+    event:clear
+    optimize:clear
+    route:clear
+    view:clear {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"cache:ckear\" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table
+    config:clear
+    event:clear
+    optimize:clear
+    route:clear
+    view:clear at /var/www/html/vendor/symfony/console/Application.php:669)
+[stacktrace]
+#0 /var/www/html/vendor/symfony/console/Application.php(235): Symfony\\Component\\Console\\Application->find('cache:ckear')
+#1 /var/www/html/vendor/symfony/console/Application.php(147): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/html/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2021-10-05 00:10:55] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:10:58] local.ERROR: Connection refused [tcp://127.0.0.1:6379] {"exception":"[object] (Predis\\Connection\\ConnectionException(code: 111): Connection refused [tcp://127.0.0.1:6379] at /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php:155)
+[stacktrace]
+#0 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\\Connection\\AbstractConnection->onConnectionError('Connection refu...', 111)
+#1 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\\Connection\\StreamConnection->createStreamSocket(Object(Predis\\Connection\\Parameters), 'tcp://127.0.0.1...', 4)
+#2 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\\Connection\\StreamConnection->tcpStreamInitializer(Object(Predis\\Connection\\Parameters))
+#3 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\\Connection\\StreamConnection->createResource()
+#4 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\\Connection\\AbstractConnection->connect()
+#5 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\\Connection\\StreamConnection->connect()
+#6 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\\Connection\\AbstractConnection->getResource()
+#7 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\\Connection\\StreamConnection->write('*1\\
+$7\\
+FLUSHDB...')
+#8 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\\Connection\\StreamConnection->writeRequest(Object(Predis\\Command\\ServerFlushDatabase))
+#9 /var/www/html/vendor/predis/predis/src/Client.php(331): Predis\\Connection\\AbstractConnection->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#10 /var/www/html/vendor/predis/predis/src/Client.php(314): Predis\\Client->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#11 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/Connection.php(116): Predis\\Client->__call('flushdb', Array)
+#12 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/PredisConnection.php(65): Illuminate\\Redis\\Connections\\Connection->command('flushdb')
+#13 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php(217): Illuminate\\Redis\\Connections\\PredisConnection->flushdb()
+#14 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(646): Illuminate\\Cache\\RedisStore->flush()
+#15 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(67): Illuminate\\Cache\\Repository->__call('flush', Array)
+#16 [internal function]: Illuminate\\Cache\\Console\\ClearCommand->handle()
+#17 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#18 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Util.php(37): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(134): Illuminate\\Container\\Container->call(Array)
+#23 /var/www/html/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 /var/www/html/vendor/symfony/console/Application.php(1000): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 /var/www/html/vendor/symfony/console/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 /var/www/html/vendor/symfony/console/Application.php(147): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 /var/www/html/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 
+[2021-10-05 00:21:12] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:21:16] local.ERROR: Connection refused [tcp://127.0.0.1:6379] {"exception":"[object] (Predis\\Connection\\ConnectionException(code: 111): Connection refused [tcp://127.0.0.1:6379] at /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php:155)
+[stacktrace]
+#0 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\\Connection\\AbstractConnection->onConnectionError('Connection refu...', 111)
+#1 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\\Connection\\StreamConnection->createStreamSocket(Object(Predis\\Connection\\Parameters), 'tcp://127.0.0.1...', 4)
+#2 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\\Connection\\StreamConnection->tcpStreamInitializer(Object(Predis\\Connection\\Parameters))
+#3 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\\Connection\\StreamConnection->createResource()
+#4 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\\Connection\\AbstractConnection->connect()
+#5 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\\Connection\\StreamConnection->connect()
+#6 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\\Connection\\AbstractConnection->getResource()
+#7 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\\Connection\\StreamConnection->write('*1\\
+$7\\
+FLUSHDB...')
+#8 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\\Connection\\StreamConnection->writeRequest(Object(Predis\\Command\\ServerFlushDatabase))
+#9 /var/www/html/vendor/predis/predis/src/Client.php(331): Predis\\Connection\\AbstractConnection->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#10 /var/www/html/vendor/predis/predis/src/Client.php(314): Predis\\Client->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#11 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/Connection.php(116): Predis\\Client->__call('flushdb', Array)
+#12 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/PredisConnection.php(65): Illuminate\\Redis\\Connections\\Connection->command('flushdb')
+#13 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php(217): Illuminate\\Redis\\Connections\\PredisConnection->flushdb()
+#14 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(646): Illuminate\\Cache\\RedisStore->flush()
+#15 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(67): Illuminate\\Cache\\Repository->__call('flush', Array)
+#16 [internal function]: Illuminate\\Cache\\Console\\ClearCommand->handle()
+#17 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#18 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Util.php(37): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(134): Illuminate\\Container\\Container->call(Array)
+#23 /var/www/html/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 /var/www/html/vendor/symfony/console/Application.php(1000): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 /var/www/html/vendor/symfony/console/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 /var/www/html/vendor/symfony/console/Application.php(147): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 /var/www/html/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 
+[2021-10-05 00:21:58] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:24:06] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:27:03] local.ERROR: No Database connection yet in VoyagerServiceProvider loadAuth()  
+[2021-10-05 00:27:07] local.ERROR: Connection refused [tcp://127.0.0.1:6379] {"exception":"[object] (Predis\\Connection\\ConnectionException(code: 111): Connection refused [tcp://127.0.0.1:6379] at /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php:155)
+[stacktrace]
+#0 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\\Connection\\AbstractConnection->onConnectionError('Connection refu...', 111)
+#1 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\\Connection\\StreamConnection->createStreamSocket(Object(Predis\\Connection\\Parameters), 'tcp://127.0.0.1...', 4)
+#2 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\\Connection\\StreamConnection->tcpStreamInitializer(Object(Predis\\Connection\\Parameters))
+#3 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\\Connection\\StreamConnection->createResource()
+#4 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\\Connection\\AbstractConnection->connect()
+#5 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\\Connection\\StreamConnection->connect()
+#6 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\\Connection\\AbstractConnection->getResource()
+#7 /var/www/html/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\\Connection\\StreamConnection->write('*1\\
+$7\\
+FLUSHDB...')
+#8 /var/www/html/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\\Connection\\StreamConnection->writeRequest(Object(Predis\\Command\\ServerFlushDatabase))
+#9 /var/www/html/vendor/predis/predis/src/Client.php(331): Predis\\Connection\\AbstractConnection->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#10 /var/www/html/vendor/predis/predis/src/Client.php(314): Predis\\Client->executeCommand(Object(Predis\\Command\\ServerFlushDatabase))
+#11 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/Connection.php(116): Predis\\Client->__call('flushdb', Array)
+#12 /var/www/html/vendor/laravel/framework/src/Illuminate/Redis/Connections/PredisConnection.php(65): Illuminate\\Redis\\Connections\\Connection->command('flushdb')
+#13 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php(217): Illuminate\\Redis\\Connections\\PredisConnection->flushdb()
+#14 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(646): Illuminate\\Cache\\RedisStore->flush()
+#15 /var/www/html/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(67): Illuminate\\Cache\\Repository->__call('flush', Array)
+#16 [internal function]: Illuminate\\Cache\\Console\\ClearCommand->handle()
+#17 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#18 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Util.php(37): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 /var/www/html/vendor/laravel/framework/src/Illuminate/Container/Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(134): Illuminate\\Container\\Container->call(Array)
+#23 /var/www/html/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 /var/www/html/vendor/symfony/console/Application.php(1000): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 /var/www/html/vendor/symfony/console/Application.php(271): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 /var/www/html/vendor/symfony/console/Application.php(147): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 /var/www/html/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 /var/www/html/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 

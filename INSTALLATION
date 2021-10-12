@@ -7,7 +7,7 @@ This is the installation guide
 /*every after fresh migrate*/
 4) php artisan passport:install(to generate access token)
 5) artisan voyager:install(migrate and seeds from voyager database folder/or append parameter to existing database schema ex. user)
-6) test & serve on port :3232
+6) http://127.0.0.1 & serve on port :3232
 
 Requirements for local dev:
 Composer, Node.js
@@ -15,3 +15,8 @@ Composer, Node.js
 Ran with: xampp
 1) may download extensions on local dev (php_redis.dll) <- not needed now since predis is used
 2) windows redis server
+
+/* Docker */
+prerequisite: uncomment .env docker
+run docker with: docker-composer up -d
+--unfinished with redis issue--
