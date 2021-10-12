@@ -14,6 +14,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/{any}', function(){
+Route::get('/', function(){
     return view('landing');
-})->where('any', '.*');
+});
