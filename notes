@@ -17,7 +17,7 @@ Validation
 
 Voyager
 1) voyager:install will create a symlink in order to store avatar on storage/app
-1) set the APP_URL to show admin 
+1) set the APP_URL to show admin avatar
 
 Composer
 Running the composer install uses the composer. lock file, which now has the “lock” on all packages you have installed on the project. ... In the case of composer update , it does not use the lock file, instead it uses the composer. json file and updates the packages(if updates have been released in the last 3 months).
@@ -54,3 +54,7 @@ https://gist.github.com/mtvbrianking/eb7e1dc54d4b85a0a3f27c21fe4d654f
 
 Ubuntu software downloads
 choose save file -> to put under downloads folder
+
+GIT SSH
+https://www.atlassian.com/git/tutorials/git-ssh
+copy key -> cat ~/.ssh/id_rsa.pub -> save to github
