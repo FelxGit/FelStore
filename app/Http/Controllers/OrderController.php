@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
-use App\product;
+use App\Product;
 use Auth;
 use Illuminate\Http\Request;
 

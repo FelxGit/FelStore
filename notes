@@ -18,3 +18,43 @@ Validation
 Voyager
 1) voyager:install will create a symlink in order to store avatar on storage/app
 1) set the APP_URL to show admin avatar
+
+Composer
+Running the composer install uses the composer. lock file, which now has the “lock” on all packages you have installed on the project. ... In the case of composer update , it does not use the lock file, instead it uses the composer. json file and updates the packages(if updates have been released in the last 3 months).
+
+------------------------------------------------------------------------------------------
+UBUNTU LOCAL
+
+Enable additional packages
+
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt update - to re-cache package tool
+
+Nodejs and NPM
+sudo apt install nodejs
+sudo apt install npm
+
+Install xampp
+To make the latest XAMPP installation package executable, use the command:
+sudo chmod 755 xampp-linux-x64-7.3.5.1-installer.run
+sudo ./[package_name]
+Run xampp executable - sudo /opt/lampp/manager-linux-x64.run
+
+Common php extensions
+
+This command directly add extensions to your php dependencies(don't have to edit php.ini)
+sudo apt-get install -y php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
+
+Composer install
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04
+
+Redis server local
+https://gist.github.com/mtvbrianking/eb7e1dc54d4b85a0a3f27c21fe4d654f
+
+Ubuntu software downloads
+choose save file -> to put under downloads folder
+
+GIT SSH
+https://www.atlassian.com/git/tutorials/git-ssh
+copy key -> cat ~/.ssh/id_rsa.pub -> save to github
