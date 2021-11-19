@@ -1,26 +1,22 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import axios from 'axios'
 
-Vue.use(Vuex)
+const state = Vue.observable({
+  loading: true
+});
 
-export const store =  new Vuex.Store({
-  state: {
-      loading: true
-  },
-  getters: {
-    get_status: (state) => {
-      return state.loading
-    }
-  },
-  mutations: {
-    loading_changes: (state, payload) => {
-      state.loading = payload
-    }
-  },
-  actions: {
-    loading_update: (context, payload) => {
-      context.commit('loading_changes',payload)
-    }
-  },
-  modules: {}
-})
+export const getters = {
+  loading: () => state.loading
+}
+
+export const mutations = {
+  setLoading: (val) => state.loading = val
+}
+
+export const actions = {
+  // return axios
+  // .get('')
+  // .then((res) => {
+  //     mutations.setLoading(data);
+  // });
+}

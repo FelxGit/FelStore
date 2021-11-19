@@ -37,6 +37,11 @@ Vue.component('HeaderTitle', require('../components/TemplateParts/HeaderTitle.vu
 Vue.component('ContentSpinner', require('../components/LoadingAnimation/ContentSpinner.vue').default)
 Vue.component('InputNumber', require('../components/TemplateParts/InputNumber.vue').default)
 
+Vue.prototype.$roles = {
+    admin: 1,
+    user: 2
+}
+
 export default {
     data() {
         return {

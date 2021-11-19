@@ -37133,7 +37133,7 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\FelStore\resources\js\bootstrap.js */"./resources/js/bootstrap.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/FelStore/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
 
 
 /***/ })

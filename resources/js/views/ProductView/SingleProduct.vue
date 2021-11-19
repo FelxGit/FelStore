@@ -33,7 +33,7 @@
     </template>
 
     <script>
-    import { mapState } from 'vuex'
+    import { getters, mutations, actions } from '../../store/'
     import { required, minValue, maxValue } from 'vuelidate/lib/validators' // should not put hard validation for 1 input, so this for testing only
 
     export default {
@@ -56,9 +56,12 @@
 
         },
         computed: {
-            ...mapState(['loading'])
+            ...getters
         },
         methods:{
+            ...mutations,
+            ...actions,
+
             submit(e) {
                 e.preventDefault()
 

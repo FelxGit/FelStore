@@ -22,7 +22,7 @@
             </div>
         </template>
         <script>
-            import { mapState } from 'vuex'
+        import { getters, mutations, actions } from '../../store/'
 
             export default {
                 data(){
@@ -31,7 +31,11 @@
                     }
                 },
                 computed: {
-                    ...mapState(['loading'])  // is reactive
+                    ...getters
+                },
+                method: {
+                    ...mutations,
+                    ...actions
                 },
                 beforeMount() {
                     this.$http.get("api/products").then(response => this.products = response.data)

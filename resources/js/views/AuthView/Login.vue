@@ -49,7 +49,8 @@
 
                         axios.post('api/login', {email, password}).then(response => {
                             let user = response.data.user
-                            let is_admin = user.is_admin
+                            let role_id = user.role_id
+                            console.log(this.$roles.admin)
 
                             // set item to access accross the app
                             localStorage.setItem('felStore.user', JSON.stringify(user))
@@ -60,7 +61,7 @@
                                 if (this.$route.params.nextUrl != null) {
                                     this.$router.push(this.$route.params.nextUrl)
                                 } else {
-                                    this.$router.push((is_admin == 1 ? 'admin' : 'dashboard'))
+                                    this.$router.push((role_id == this.$roles.admin ? 'admin' : 'dashboard'))
                                 }
                             }
                         });
