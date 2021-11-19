@@ -50,7 +50,6 @@
                         axios.post('api/login', {email, password}).then(response => {
                             let user = response.data.user
                             let role_id = user.role_id
-                            console.log(this.$roles.admin)
 
                             // set item to access accross the app
                             localStorage.setItem('felStore.user', JSON.stringify(user))

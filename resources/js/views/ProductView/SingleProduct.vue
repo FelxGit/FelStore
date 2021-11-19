@@ -74,7 +74,6 @@
 
                     this.addToCart()
                     .then(response => {
-                        console.log(response.data)
                         this.submitStatus = 'OK'
                     })
                 }

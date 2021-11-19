@@ -2367,8 +2367,7 @@ __webpack_require__.r(__webpack_exports__);
           password: password
         }).then(function (response) {
           var user = response.data.user;
-          var role_id = user.role_id;
-          console.log(_this.$roles.admin); // set item to access accross the app
+          var role_id = user.role_id; // set item to access accross the app
 
           localStorage.setItem('felStore.user', JSON.stringify(user));
           localStorage.setItem('felStore.jwt', response.data.token);
@@ -2992,7 +2991,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         // do your submit logic here
         this.submitStatus = 'PENDING';
         this.addToCart().then(function (response) {
-          console.log(response.data);
           _this2.submitStatus = 'OK';
         });
       }
