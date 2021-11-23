@@ -36,7 +36,7 @@
     </template>
 
     <script>
-    import { mapState } from 'vuex'
+    import { getters, mutations, actions } from '../../store/'
     export default {
         data() {
             return {
@@ -44,14 +44,18 @@
                 orders : []
             }
         },
-        computed: {
-            ...mapState(['loading'])
-        },
         beforeMount() {
             let user = JSON.parse(this.user)
 
             this.$http.get(`api/orders`)
                  .then(response => this.orders = response.data)         
+        },
+        method: {
+            ...mutations,
+            ...actions
+        },
+        computed: {
+            ...getters
         }
     }
     </script>

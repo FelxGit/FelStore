@@ -62,7 +62,7 @@ class UserController extends Controller
 
         $data = $request->only(['name', 'email', 'password']);
         $data['password'] = bcrypt($data['password']);
-        $data['is_admin'] = 0;
+        $data['role_id'] = 2;
 
         $user = User::create($data);
 

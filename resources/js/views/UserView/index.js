@@ -1,4 +1,4 @@
-import UserBoard from './Userboard.vue'
+import UserBoard from './UserBoard'
 import Admin from './Admin.vue'
 
 const userRoutes = [

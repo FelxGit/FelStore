@@ -61,7 +61,7 @@
 </style>
 
 <script>
-import { mapState } from 'vuex'
+import { getters, mutations, actions } from '../../store/'
 
 export default {
     props : ['pid'],
@@ -86,13 +86,13 @@ export default {
 
     },
     computed: {
-        ...mapState(['loading']),
+        ...getters,
 
         getTotalPrice() { 
             let pay = this.cart_total >= 10? this.cart_total : this.cart_total + this.shipping_fee
             return pay.toFixed(2) 
         },
-        cart_total() { 
+        cart_total() {
             let total = 0
             this.cart.forEach(c => {
                 total += c.product.price * c.quantity
@@ -101,6 +101,9 @@ export default {
         }
     },
     methods : {
+        ...mutations,
+        ...actions,
+
         login() { // after login, redirect back
             this.$router.push({name: 'login', params: {nextUrl: this.$route.fullPath}})
         },

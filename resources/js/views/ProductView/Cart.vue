@@ -44,7 +44,7 @@
     </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { getters, mutations, actions } from '../../store/'
 
 export default {
     data(){
@@ -62,9 +62,12 @@ export default {
             this.$http.get(`/api/cart-local`).then(response => this.cart = response.data)
     },
     computed: {
-        ...mapState(['loading'])
+        ...getters
     },
     methods: {
+        ...mutations,
+        ...actions,
+
         update(data) {
             let quantity = this.quantity
             let cart_id = data.cart_id
