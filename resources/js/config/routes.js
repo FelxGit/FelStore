@@ -6,9 +6,10 @@ import { appRoutes as app } from '../views/ProductView';
 import { authRoutes as auth } from '../views/AuthView'
 import { pageCodesRoutes as pageCodes } from '../views/PageCodesView'
 import { userRoutes as user } from '../views/UserView'
+import { mailableRoutes as mailables } from '../views/MailableView'
 // import { noteRoutes as note} from './views/notes'
 
-const routes = [...app, ...auth, ...pageCodes, ...user ]; // spread operator(...) - spread properties from object to multiple arguments
+const routes = [...app, ...auth, ...pageCodes, ...user, ...mailables ]; // spread operator(...) - spread properties from object to multiple arguments
 
 const router = new Router({
   mode: 'history',
