@@ -34,7 +34,7 @@
 
     <script>
     import { getters, mutations, actions } from '../../store/'
-    import { required, minValue, maxValue } from 'vuelidate/lib/validators' // should not put hard validation for 1 input, so this for testing only
+    import { required, minValue, maxValue } from 'vuelidate/lib/validators'
 
     export default {
         data(){

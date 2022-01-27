@@ -19,7 +19,21 @@
                             <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hi, {{name}}</router-link>
                             <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hi, {{name}}</router-link>
                         </span>
-                        <li class="nav-link" v-if="isLoggedIn" @click="logout"> Logout</li>
+                        <li class="nav-item">
+                            <a class="nav-link" v-if="isLoggedIn" @click="logout"> Logout</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Menu
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <router-link :to="{ name: 'contact' }" class="nav-link">Send Mail</router-link>
+                                <!-- <a class="dropdown-item" href="#">Send Mail</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a> -->
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
